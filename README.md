@@ -58,17 +58,15 @@ sleep 1
 
 kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000-- target-port=9000
 
-echo "Exposing Prometheus over cloud loadbalancer to verify kafka targets under service discovery in Prometheus UI"
+echo "IMPORTANT: Change the kafka-watcher service to 'type: LoadBalancer' and then save the file. Proceeding to edit now.."
+sleep 5
 
-sleep 1
-
-kubectl expose prometheus kafka-watcher -n developers --type=LoadBalancer --port=9090 --target-port=9090
-
-sleep 1
+kubectl edit service -n developers kafka-watcher
+sleep 2
 
 kubectl get services -n developers
 
-echo "Go to the Prometheus UI and confirm targets are coming through under 'Service Discovery'"
+echo "Find the External IP and Go to the Prometheus UI to confirm targets are coming through under 'Service Discovery'"
 
 sleep 1
 
