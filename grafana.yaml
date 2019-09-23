@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: grafana
-  namespace: jfrog
+  namespace: developers
 spec:
   replicas: 1
   template:
