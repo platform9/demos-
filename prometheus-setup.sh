@@ -55,7 +55,7 @@ echo "Exposing grafana UI over cloud loadbalancer..."
 
 sleep 1
 
-kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000--target-port=9000
+kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000 --target-port=9000
 
 echo "Exposing Prometheus over cloud loadbalancer to verify kafka targets under service discovery in Prometheus UI"
 
