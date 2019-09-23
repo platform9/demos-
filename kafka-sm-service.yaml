@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kafka-watcher
+  labels:
+    team: kafka
+spec:
+  selector:
+    metrics: kafka
+  ports:
+  - name: prometheus
+    port: 9090

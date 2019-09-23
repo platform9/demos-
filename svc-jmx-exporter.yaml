@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-exporter
+  labels:
+    metrics: kafka
+spec:
+  selector:
+    app: kafka
+    release: kafka
+  ports:
+  - protocol: TCP
+    port: 5556
+    name: prometheus
+    targetPort: 5556
