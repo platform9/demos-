@@ -25,6 +25,10 @@ kubectl create namespace developers
 
 sleep 1
 
+echo "Creating prometheus Service Account" 
+
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-rbac-INSERTHERE.yaml
+
 echo "Deploying default storage class for Kafka"
 
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/sc-standard.yaml
