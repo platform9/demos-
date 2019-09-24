@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/platform9/prometheus-kafka/master/kafka_prom_architecture.png)
+    ![alt text](https://raw.githubusercontent.com/platform9/prometheus-kafka/master/kafka_prom_architecture.png)
 
 
 The following demo deploys a prometheus stack via Kubernetes operators in order to monitor Kafka metrics and visualize them in grafana 
@@ -15,5 +15,5 @@ The following demo deploys a prometheus stack via Kubernetes operators in order 
 Download the prometheus-setup.sh and run the script. Afterwards, confirm that the targets are showing for Kafka exported metrics under service discovery in the prometheus UI 
 You can then go to Grafan Dashboard and add the external IP for prometheus in order to begin visualizing the data
 
-Enjoy
--Eric 
+Enjoy!
+-Platform9
