@@ -13,7 +13,9 @@ The following demo deploys a prometheus stack via Kubernetes operators in order 
 ## Instructions 
 
 Download the prometheus-setup.sh and run the script. Afterwards, confirm that the targets are showing for Kafka exported metrics under service discovery in the prometheus UI 
-You can then go to Grafan Dashboard and add the external IP for prometheus in order to begin visualizing the data
+
+You can then go to Grafana Dashboard and add the external IP for prometheus in order to begin visualizing the data
 
 Enjoy!
--Platform9
+
+Platform9
