@@ -4,7 +4,7 @@ metadata:
   name: kafka-watcher
   namespace: developers
 spec:
-  serviceAccountName: default
+  serviceAccountName: prometheus 
   serviceMonitorSelector:
     matchLabels:
       team: kafka
