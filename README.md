@@ -1,3 +1,5 @@
+![alt text](https://raw.githubusercontent.com/platform9/prometheus-kafka/master/kafka_prom_architecture.png)
+
 
 The following demo deploys a prometheus stack via Kubernetes operators in order to monitor Kafka metrics and visualize them in grafana 
 
