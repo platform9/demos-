@@ -4,9 +4,9 @@ kind: PersistentVolumeClaim
 
 metadata:
 
-  name: datadir-0-kafka-cp-kafka-1
+  name: datalogdir-kafka-cp-zookeeper-2
 
-  namespace: developers
+  namespace: developers 
 
   labels:
     app: kafka
@@ -24,4 +24,4 @@ spec:
 
       storage: 40Gi
 
-  storageClassName: standard
+  storageClassName: standard 
