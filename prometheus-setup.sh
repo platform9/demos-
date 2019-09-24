@@ -1,3 +1,4 @@
+#!/bin/bash
 
 echo
 echo " #################################"
@@ -28,7 +29,7 @@ kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/m
 
 echo "Deploying Kafka..."
 
-helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,prometheus.kafka.enabled=true,persistence.size=40Gi incubator/kafka
+helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,prometheus.kafka.enabled=true,persistence.size=5Gi incubator/kafka
 
 echo "Waiting several seconds..."
 sleep 3
@@ -55,15 +56,13 @@ echo "Exposing grafana UI over cloud loadbalancer..."
 
 sleep 1
 
-kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000 --target-port=9000
+kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000--target-port=9000
 
-echo "Exposing Prometheus over cloud loadbalancer to verify kafka targets under service discovery in Prometheus UI"
+echo "IMPORTANT: Change the kafka-watcher service to 'type: LoadBalancer' and then save the file. (See the yaml syntax in kafka-sm-service.yaml for exact additions)...Proceeding to edit now.."
+sleep 10
 
-sleep 1
-
-kubectl expose prometheus kafka-watcher -n developers --type=LoadBalancer --port=9090 --target-port=9090
-
-sleep 1
+kubectl edit service -n developers kafka-watcher
+sleep 2
 
 kubectl get services -n developers
 
