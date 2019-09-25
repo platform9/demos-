@@ -40,6 +40,9 @@ echo "Deploying persistent volume claims for Kafka"
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-0.yaml
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-1.yaml
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-2.yaml
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-zookeeper-0.yaml
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-zookeeper-1.yaml
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-zookeeper-2.yaml
 
 sleep 1
 
