@@ -7,10 +7,10 @@ metadata:
     metrics: kafka
 spec:
   selector:
-    app: prometheus-kafka-exporter
-    release: kafka-exporter 
+    app: kafka
+    release: kafka 
   ports:
   - protocol: TCP
-    port: 5556
+    port: 9308
     name: prometheus
-    targetPort: 5556
+    targetPort: 9308

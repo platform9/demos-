@@ -48,7 +48,7 @@ sleep 1
 
 echo "Deploying Kafka..."
 
-helm install --namespace developers --name kafka --set metrics.jmx.enabled=true,metrics.kafka.enabled=true,persistence.size=40Gi bitnami/kafka
+helm install --namespace developers --name kafka --set metrics.jmx.enabled=true,metrics.kafka.enabled=true,persistence.size=40Gi --replicaCount 3 bitnami/kafka
 
 echo "Waiting several seconds..."
 sleep 3
