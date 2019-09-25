@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 
 metadata:
 
-  name: datadir-kafka-2
+  name: data-kafka-2
 
   namespace: developers
 

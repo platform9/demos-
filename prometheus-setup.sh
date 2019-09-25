@@ -14,8 +14,10 @@ sleep 1
 echo "Adding incubator charts repo"
 
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
-helm init
+helm repo add bitnami https://charts.bitnami.com/bitnami
 helm update
+helm init --upgrade
+helm init
 
 sleep 1
 
@@ -27,7 +29,7 @@ sleep 1
 
 echo "Creating prometheus Service Account"
 
-kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-rbac-clusterrole.yaml
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/prometheus-rbac-clusterrole.yaml
 
 echo "Deploying default storage class for Kafka"
 
@@ -43,7 +45,7 @@ sleep 1
 
 echo "Deploying Kafka..."
 
-helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,prometheus.kafka.enabled=true,persistence.size=40Gi incubator/kafka
+helm install --namespace developers --name kafka --set metrics.jmx.enabled=true,metrics.kafka.enabled=true,persistence.size=40Gi bitnami/kafka
 
 echo "Waiting several seconds..."
 sleep 3
@@ -74,7 +76,7 @@ echo "Exposing grafana UI over cloud loadbalancer..."
 
 sleep 1
 
-kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000--target-port=9000
+kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000 --target-port=9000
 
 kubectl get services -n developers
 

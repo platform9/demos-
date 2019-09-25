@@ -4,10 +4,9 @@ kind: PersistentVolumeClaim
 
 metadata:
 
-  name: data-kafka-0
+  name: data-kafka-zookeeper-0
 
   namespace: developers 
-
   labels:
     app: kafka
     release: kafka
