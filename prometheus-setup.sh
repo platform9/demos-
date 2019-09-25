@@ -25,9 +25,9 @@ kubectl create namespace developers
 
 sleep 1
 
-echo "Creating prometheus Service Account" 
+echo "Creating prometheus Service Account"
 
-kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-rbac-INSERTHERE.yaml
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-rbac-clusterrole.yaml
 
 echo "Deploying default storage class for Kafka"
 
@@ -43,7 +43,7 @@ sleep 1
 
 echo "Deploying Kafka..."
 
-helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,prometheus.kafka.enabled=true,persistence.size=5Gi incubator/kafka
+helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,kafka.enabled=true,persistence.size=40Gi incubator/kafka
 
 echo "Waiting several seconds..."
 sleep 3
