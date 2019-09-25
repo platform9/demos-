@@ -43,7 +43,7 @@ sleep 1
 
 echo "Deploying Kafka..."
 
-helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,kafka.enabled=true,persistence.size=40Gi incubator/kafka
+helm install --namespace developers --name kafka --set prometheus.jmx.enabled=true,prometheus.kafka.enabled=true,persistence.size=40Gi incubator/kafka
 
 echo "Waiting several seconds..."
 sleep 3

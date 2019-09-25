@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: tomcat-watcher
+  namespace: developers
+  labels:
+     app: tomcat-web
+     type: java
+spec:
+  selector:
+    matchLabels:
+       app: tomcat-web
+  endpoints:
+  - port: prometheus
