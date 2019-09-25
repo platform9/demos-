@@ -44,7 +44,9 @@ kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/m
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-zookeeper-1.yaml
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/pvc-kafka-zookeeper-2.yaml
 
-sleep 1
+echo "Waiting for Tiller pod to be ready..."
+
+sleep 7
 
 echo "Deploying Kafka..."
 
@@ -71,7 +73,7 @@ kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/m
 
 echo "Deploying Grafana via helm chart..."
 
-kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/grafana.yaml
+helm install --name grafana --namespace developers stable/grafana
 
 sleep 1
 

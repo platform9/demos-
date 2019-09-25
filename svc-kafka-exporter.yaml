@@ -1,16 +1,17 @@
+  
 apiVersion: v1
 kind: Service
 metadata:
-  name: kafka-exporter-2
+  name: kafka-exporter
   namespace: developers
   labels:
     metrics: kafka
 spec:
   selector:
-    app.kubernetes.io/component: kafka
-    app.kubernetes.io/instance: kafka 
+    app: kafka
+    release: kafka 
   ports:
   - protocol: TCP
-    port: 5556
+    port: 9308
     name: prometheus
-    targetPort: 5556
+    targetPort: 9308
