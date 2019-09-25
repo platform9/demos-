@@ -55,9 +55,10 @@ helm install --namespace developers --name kafka --set metrics.jmx.enabled=true,
 echo "Waiting several seconds..."
 sleep 3
 
-echo "Deploying jmx exporter for Kafka to begin exposing metrics to Prometheus instance..."
+echo "Deploying services for Kafka to begin exposing metrics to Prometheus instance..."
 
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/svc-jmx-exporter.yaml
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/svc-kafka-exporter.yaml 
 
 echo "Installing Prometheus now..."
 
