@@ -58,7 +58,7 @@ sleep 3
 echo "Deploying services for Kafka to begin exposing metrics to Prometheus instance..."
 
 kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/svc-jmx-exporter.yaml
-kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/svc-kafka-exporter.yaml 
+kubectl create -f https://raw.githubusercontent.com/platform9/prometheus-kafka/master/svc-kafka-exporter.yaml
 
 echo "Installing Prometheus now..."
 
@@ -82,7 +82,7 @@ echo "Exposing grafana UI over cloud loadbalancer..."
 
 sleep 1
 
-kubectl expose deployment grafana -n developers --type=LoadBalancer --port=9000 --target-port=9000
+kubectl expose deployment grafana -n developers --type=LoadBalancer --port=3000 --target-port=3000
 
 kubectl get services -n developers
 
